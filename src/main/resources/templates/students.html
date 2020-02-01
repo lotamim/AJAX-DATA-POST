@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="/webjars/bootstrap/4.4.1/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/customscript/studentScript.js}"></script>	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+<meta charset="ISO-8859-1">
+<title>Student List</title>
+</head>
+<body>
+	<p>Student of List</p>
+
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#addModal">Add New</button>
+
+	<table class="table table-stripped">
+		<tr>
+			<td>Student Id</td>
+			<td>Student Name</td>
+			<td>Department</td>
+			<td>Updated By</td>
+			<td>Update On</td>
+		</tr>
+		<tr th:each="student : ${students}">
+			<td th:text="${student?.id}"></td>
+			<td th:text="${student?.studentName}"></td>
+			<td th:text="${student?.department}"></td>
+			<td th:text="${student?.updatedBy}"></td>
+			<td th:text="${student?.updateOn}"></td>
+		</tr>
+	</table>
+
+
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		 <!-- th:action="@{/saveStudent}" method="POST" -->>
+		<form id ="studentForm" name="studentForm" >
+			<div class="modal-dialog" role="document">
+				<div id="getResultDiv" style="padding:20px 10px 20px 50px">
+					<ul class="list-group">
+					</ul>
+				</div>
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="id" class="col-form-label">Id:</label>
+							<input type="text" class="form-control" id="id" name="id">
+						</div>
+						<div class="form-group">
+							<label for="studentName" class="col-form-label">Student Name:</label>
+							<input type="text" class="form-control" id="studentName" name="studentName">
+						</div>
+						<div class="form-group">
+							<label for="department" class="col-form-label">Department:</label>
+							<input type="text" class="form-control" id="department" name="department">
+						</div>
+						<div class="form-group">
+							<label for="updatedBy" class="col-form-label">Updated By:</label>
+							<input type="text" class="form-control" id="updatedBy" name="updatedBy">
+						</div>
+						<div class="form-group">
+							<label for="updateOn" class="col-form-label">Update On</label>
+							<input type="text" class="form-control" id="updateOn" name="updateOn">
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button"  id="saveStunt" class="btn btn-primary">Save</button>
+					</div>
+
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+  
+</html>
