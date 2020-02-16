@@ -30,4 +30,8 @@ public class StudentService {
 //		 return studentRepository.save(student);
         return jsonObject.toString();
     }
+
+    public Student getStudent(Long id){
+        return studentRepository.findById(id).get();
+    }
 }

@@ -26,6 +26,7 @@
 			<td>Department</td>
 			<td>Updated By</td>
 			<td>Update On</td>
+			<td>Update</td>
 		</tr>
 		<tr th:each="student : ${students}">
 			<td th:text="${student?.id}"></td>
@@ -33,7 +34,9 @@
 			<td th:text="${student?.department}"></td>
 			<td th:text="${student?.updatedBy}"></td>
 			<td th:text="${student?.updateOn}"></td>
-		</tr>
+			<td> <input type="button" th:onclick="'javascript:test(\'' + ${student.id} + '\');'" /> </td>
+<!--			<a href="javascript:void(0)" th:attr="onclick='loadDetails(\'' + ${student.id}+'\')'">Edit</a>-->
+	</tr>
 	</table>
 
 

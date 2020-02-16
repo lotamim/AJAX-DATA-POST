@@ -4,10 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
-
-	@RequestMapping(value = "/")
-	public String sayHello() {
-		return "index";
-	}
+public class DepartmentController {
+    @RequestMapping(value = "/show")
+    public String show(){
+        return "department";
+    }
 }

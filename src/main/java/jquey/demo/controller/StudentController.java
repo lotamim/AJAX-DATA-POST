@@ -5,10 +5,7 @@ import jquey.demo.sevices.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,9 @@ public class StudentController {
 		return studentService.saveStudent(student);
 //		model.addAttribute(studentService.saveStudent(student));
 //		return "redirect:/getAll";
+	}
+	@RequestMapping(value ="/getData/{id}")
+	public Student getData(Model model, @PathVariable Long id){
+		return (Student) model.addAttribute("studentObj",studentService.getStudent(id));
 	}
 }
