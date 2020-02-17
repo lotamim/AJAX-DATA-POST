@@ -5,18 +5,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
-public class department {
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String deptName;
     private String maxCapacity;
 
-    public department() {
+    public Department() {
 
     }
 
-    public department(String deptName, String maxCapacity) {
+    public Department(String deptName, String maxCapacity) {
         this.deptName = deptName;
         this.maxCapacity = maxCapacity;
     }
