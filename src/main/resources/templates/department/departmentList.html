@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-----head------------------------------>
+<div th:replace="fragments/css::css"></div>
+<!-----head end-------------------------->
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="fragments/header::header">
+    </div>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <div th:replace="fragments/leftmenu::leftmenu">
+    </div>
+    <!-- Main Sidebar Container End -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Create Department</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <!--                        <button type="submit" class="btn btn-primary">Save</button>-->
+                        <!--                        <ol class="breadcrumb float-sm-right">-->
+                        <!--                            <button type="submit" class="btn btn-primary">Create(+)</button>-->
+                        <!--                        </ol>-->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Create Department</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+
+                            <div class="card-body">
+                                <table id="example" class="display" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Extn.</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--------------------------------------->
+    <div th:replace="fragments/footer::footer">
+    </div>
+    <!--------------------------------------->
+</div>
+<th:block th:replace="fragments/script::script"></th:block>
+</body>
+</html>
+
+

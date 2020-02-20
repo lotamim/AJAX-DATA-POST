@@ -1,13 +1,29 @@
 $(function () {
-    // $(".autoLoad").click(function () {
-    //     $( "#replace_div" ).load("department.html");
-    // });
-
+    getData();
 });
+function getData() {
+    $.ajax({
+        'url': "/getList",
+        'method': "GET",
+        'contentType': 'application/json',
+        success:function (data) {
+            $('#example').dataTable({
+                "paging": false,
+                "searching": false,
+                "retrieve": true,
+                // "bDestroy": true,
+                "aaData": data,
+                "columns": [
+                    {"data": "id"},
+                    {"data": "deptName"},
+                    {"data": "maxCapacity"}
+                ]
+            });
+        }
+    });
+}
 
 function saveDept() {
-    // var deptName = $('#deptName').val();
-    // var maxCapacity = $('#maxCapacity').val();
     var data = {
         deptName: $('#deptName').val(),
         maxCapacity: $('#maxCapacity').val()
@@ -18,12 +34,13 @@ function saveDept() {
         url: "/saveDept",
         data: JSON.stringify(data),
         dataType: 'json',
-        success:function (data) {
-            toastr.success(data.message, "student save successfully !", {
-                closeButton: true
-            });
+        success: function (data) {
+            showSuccess(data.message, "Department Save Successfully !");
+            getData();
+            formClear($('#deptFrom'));
         }
     });
-    // alert("deptName"+deptName+"maxCapacity"+maxCapacity);
 }
+
+
 

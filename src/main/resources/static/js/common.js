@@ -19,3 +19,14 @@ function autoLoad(val) {
 //  // action = '';
 //  // return false;
 // });
+
+function showSuccess(body,title) { // tamim
+    debugger;
+    toastr.success(body, title, {
+        closeButton: true
+    });
+}
+
+function formClear(form) { // tamim
+    form.trigger('reset');
+}
