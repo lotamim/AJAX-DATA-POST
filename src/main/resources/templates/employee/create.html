@@ -45,15 +45,38 @@
                             <!-- form start -->
 
                             <div class="card-body">
+                                <form id="deptFrom" name="deptFrom" method="post">
+                                    <input type="hidden" id="deptId" name="deptId" value="" >
+                                    <div class="form-group">
+                                        <label for="deptName">Department Name :</label>
+                                        <input type="text" class="form-control" id="deptName" name="deptName"
+                                               placeholder="" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maxCapacity">Department Capacity :</label>
+                                        <input type="text" class="form-control" id="maxCapacity" name="maxCapacity"
+                                               placeholder="">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-primary" onclick="saveDept()">Save</button>
+                                <button type="button" class="btn btn-primary" onclick="clearData()">Cancel</button>
+                            </div>
+
+
+                            <div class="card-body">
                                 <table id="example" class="display" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Extn.</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>id</th>
+                                        <th>name</th>
+                                        <th>capacity</th>
+                                        <!--                                        <th>Extn.</th>-->
+                                        <!--                                        <th>Start date</th>-->
+                                        <!--                                        <th>Salary</th>-->
                                     </tr>
                                     </thead>
                                 </table>
