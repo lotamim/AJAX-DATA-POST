@@ -1,9 +1,8 @@
 package jquey.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+
 @Entity
 public class Department {
     @Id
@@ -12,13 +11,17 @@ public class Department {
     private String deptName;
     private String maxCapacity;
 
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employee;
+
     public Department() {
 
     }
 
-    public Department(String deptName, String maxCapacity) {
+    public Department(String deptName, String maxCapacity,List<Employee> employee) {
         this.deptName = deptName;
         this.maxCapacity = maxCapacity;
+        this.employee = employee;
     }
 
     public Integer getId() {
@@ -43,5 +46,13 @@ public class Department {
 
     public void setMaxCapacity(String maxCapacity) {
         this.maxCapacity = maxCapacity;
+    }
+
+    public List<Employee> getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(List<Employee> employee) {
+        this.employee = employee;
     }
 }

@@ -1,13 +1,9 @@
 package jquey.demo.sevices;
 
-import jquey.demo.models.Author;
-import jquey.demo.models.Book;
 import jquey.demo.repositories.AuthorRepository;
 import jquey.demo.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class BookService {

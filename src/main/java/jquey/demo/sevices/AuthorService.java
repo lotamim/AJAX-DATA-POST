@@ -1,6 +1,5 @@
 package jquey.demo.sevices;
 
-import jquey.demo.models.Author;
 import jquey.demo.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
