@@ -29,7 +29,7 @@ function getData() {
     });
 }
 
-function saveDept() {
+function saveDept() { //  save or update
     var data = {
         deptId :$('#deptId').val(),
         deptName: $('#deptName').val(),
@@ -56,7 +56,7 @@ function saveDept() {
             });
     }
 
-function setDataField(id) {
+function setDataField(id) { // set value in text box.
  // alert(id);
     var data ={
         id:id

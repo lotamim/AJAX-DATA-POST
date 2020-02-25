@@ -1,5 +1,7 @@
 package jquey.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,11 +12,11 @@ public class Employee {
     private String empFirstName;
     private String empLastName;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY,optional = true)
+    @JsonIgnore
     private Department department;
 
-    public Employee(Integer id,String empFirstName,String empLastName,Department department) {
-        this.id = id;
+    public Employee(String empFirstName,String empLastName,Department department) {
         this.empFirstName = empFirstName;
         this.empLastName = empLastName;
         this.department = department;

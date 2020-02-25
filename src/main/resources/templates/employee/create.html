@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Create Department</h1>
+                        <h1>Create Employee</h1>
                     </div>
                     <div class="col-sm-6">
                         <!--                        <button type="submit" class="btn btn-primary">Save</button>-->
@@ -39,48 +39,48 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Create Department</h3>
+                                <h3 class="card-title">Create Employee</h3>
                             </div>
-                            <!-- /.card-header -->
-                            <!-- form start -->
-
                             <div class="card-body">
-                                <form id="deptFrom" name="deptFrom" method="post">
-                                    <input type="hidden" id="deptId" name="deptId" value="" >
+                                <form id="empFrom" name="empFrom" method="POST">
+                                    <input type="hidden" id="empId" name="empId" value="" >
                                     <div class="form-group">
-                                        <label for="deptName">Department Name :</label>
-                                        <input type="text" class="form-control" id="deptName" name="deptName"
+                                        <label for="empFirstName">Employee First Name :</label>
+                                        <input type="text" class="form-control" id="empFirstName" name="empFirstName"
                                                placeholder="" >
                                     </div>
                                     <div class="form-group">
-                                        <label for="maxCapacity">Department Capacity :</label>
-                                        <input type="text" class="form-control" id="maxCapacity" name="maxCapacity"
+                                        <label for="empLastName">Employee Last Name :</label>
+                                        <input type="text" class="form-control" id="empLastName" name="empLastName"
                                                placeholder="">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <select class="form-control" id="department" name="department" onchange="selectVlue()"> </select>
+                                    </div>
                                 </form>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="button" class="btn btn-primary" onclick="saveDept()">Save</button>
+                                <button type="button" class="btn btn-primary" onclick="saveEmp()">Save</button>
                                 <button type="button" class="btn btn-primary" onclick="clearData()">Cancel</button>
                             </div>
 
 
-                            <div class="card-body">
-                                <table id="example" class="display" style="width:100%">
-                                    <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>name</th>
-                                        <th>capacity</th>
-                                        <!--                                        <th>Extn.</th>-->
-                                        <!--                                        <th>Start date</th>-->
-                                        <!--                                        <th>Salary</th>-->
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
+<!--                            <div class="card-body">-->
+<!--                                <table id="example" class="display" style="width:100%">-->
+<!--                                    <thead>-->
+<!--                                    <tr>-->
+<!--                                        <th>id</th>-->
+<!--                                        <th>name</th>-->
+<!--                                        <th>capacity</th>-->
+<!--                                        &lt;!&ndash;                                        <th>Extn.</th>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;                                        <th>Start date</th>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;                                        <th>Salary</th>&ndash;&gt;-->
+<!--                                    </tr>-->
+<!--                                    </thead>-->
+<!--                                </table>-->
+<!--                            </div>-->
 
                         </div>
 

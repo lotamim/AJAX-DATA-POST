@@ -1,5 +1,7 @@
 package jquey.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Department {
     private String maxCapacity;
 
     @OneToMany(mappedBy = "department")
+    @JsonIgnore
     private List<Employee> employee;
 
     public Department() {

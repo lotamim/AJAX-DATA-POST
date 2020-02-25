@@ -42,7 +42,6 @@ public class DepartmentService {
         String message = null;
         JSONObject jsonObject = new JSONObject();
         Department department = departmentRepository.findById(Integer.parseInt(mp.get("deptId"))).get();
-        //department.setDeptName(mp.get("deptId"));
         department.setDeptName(mp.get("deptName"));
         department.setMaxCapacity(mp.get("maxCapacity"));
         try {
