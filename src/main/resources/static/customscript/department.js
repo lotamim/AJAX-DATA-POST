@@ -15,7 +15,13 @@ function getData() {
                 "aaData": data,
                 "columns": [
                     {"data": "id"},
-                    {"data": "deptName"},
+                    {
+                        "data": function (data, type, row, meta) {
+                            return '<a href="Javascript:void(0)"  onclick="setDataField(' + '\'' + data.id + '\')">' + data.deptName + '</a>';
+
+                        }
+                    },
+                    // {"data": "deptName"},
                     {"data": "maxCapacity"}
                 ]
             });
@@ -25,21 +31,53 @@ function getData() {
 
 function saveDept() {
     var data = {
+        deptId :$('#deptId').val(),
         deptName: $('#deptName').val(),
         maxCapacity: $('#maxCapacity').val()
     };
+    var commUrl = "";
+    if($('#deptId').val()){
+        commUrl = "/updateDept";
+    }else {
+        commUrl = "/saveDept";
+    }
     $.ajax({
-        type: "POST",
-        contentType: "application/json",
-        url: "/saveDept",
-        data: JSON.stringify(data),
-        dataType: 'json',
-        success: function (data) {
-            showSuccess(data.message, "Department Save Successfully !");
-            getData();
-            formClear($('#deptFrom'));
-        }
-    });
+                type: "POST",
+                contentType: "application/json",
+                url: commUrl,
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (data) {
+                    showSuccess(data.message, "Department Save Successfully !");
+                    formClear($('#deptFrom'));
+                    $("#example").dataTable().fnDestroy();
+                    getData();
+                }
+            });
+    }
+
+function setDataField(id) {
+ // alert(id);
+    var data ={
+        id:id
+    };
+ $.ajax({
+     type: "POST",
+     contentType: "application/json",
+     url: "/select",
+     data: JSON.stringify(data),
+     dataType: 'json',
+     success:function (reuslt) {
+         $('#deptId').val(reuslt.id);
+         $('#deptName').val(reuslt.deptName);
+         $('#maxCapacity').val(reuslt.maxCapacity);
+        //console.log(reuslt);
+     }
+ });
+}
+
+function clearData() {
+    formClear($('#deptFrom'));
 }
 
 

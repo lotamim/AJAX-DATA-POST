@@ -28,5 +28,5 @@ function showSuccess(body,title) { // tamim
 }
 
 function formClear(form) { // tamim
-    form.trigger('reset');
+    form.find("input[type=text],input[type=hidden], textarea").val("");
 }

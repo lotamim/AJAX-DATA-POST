@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class DepartmentController {
@@ -27,12 +28,18 @@ public class DepartmentController {
     }
 
     @RequestMapping(value = "/getList")
-    public @ResponseBody List<Department> getList(){
+    public @ResponseBody List<Department> getList() {
         return departmentService.getAllDept();
     }
 
-//    @RequestMapping(value = "/getList")
-//    public Map<String, String> getList() {
-//        return departmentService.getAllDept();
-//    }
+    @RequestMapping(value = "/select")
+    public @ResponseBody Optional<Department> select(@RequestBody Map<String, String> map) {
+        return departmentService.selectedDept(Integer.parseInt(map.get("id")));
+    }
+
+    @RequestMapping(value = "/updateDept")
+    public @ResponseBody String updateDept(@RequestBody Map<String, String> map){
+       return departmentService.updateDepartment(map);
+    }
+
 }
