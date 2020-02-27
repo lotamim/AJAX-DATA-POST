@@ -19,7 +19,7 @@ public class EmployeeService {
     @Autowired
     DepartmentRepository departmentRepository;
 
-    public List<Department> findAllDeptForDrop(){
+    public List<Department> findAllDeptForDrop() {
         return (List<Department>) departmentRepository.findAll();
     }
 
@@ -33,6 +33,19 @@ public class EmployeeService {
         employee.setEmpLastName(empMap.get("empLastName"));
         try {
             jsonObject.put("message", employeeRepository.save(employee).getEmpFirstName() + " " + " Successfully ");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject.toString();
+    }
+
+    public List<Map<String,String>> getAllEmployeeList() {
+        return employeeRepository.getEmployeeAll();
+    }
+    public String getEmployeeById(int empId){
+        JSONObject jsonObject = new JSONObject();
+        try {
+              jsonObject.put("empData",employeeRepository.getEmployeeById(empId));
         } catch (JSONException e) {
             e.printStackTrace();
         }

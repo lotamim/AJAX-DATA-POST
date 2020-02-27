@@ -1,6 +1,5 @@
 package jquey.demo.controller;
 
-import jquey.demo.models.Department;
 import jquey.demo.sevices.DepartmentService;
 import jquey.demo.sevices.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +23,21 @@ public class EmployeeController {
         return "/employee/create";
     }
 
-    @RequestMapping(value = "/getDeptListForDrop")
-    public @ResponseBody List<Department> getDeptListForDrop() {
-        return employeeService.findAllDeptForDrop();
-    }
-
     @RequestMapping(value = "/saveEmployee")
     public @ResponseBody
     String saveEmployee(@RequestBody Map<String, String> empMap) {
         return employeeService.saveEmployee(empMap);
     }
+
+
+    @RequestMapping(value = "/getAllEmployee")
+    public @ResponseBody List<Map<String,String>> getAllEmployee (){
+       return employeeService.getAllEmployeeList();
+    }
+
+    @RequestMapping(value = "/selectedEmp")
+    public @ResponseBody String getEmployeeById(@RequestBody Map<String,String> empMap) {
+        return employeeService.getEmployeeById(Integer.parseInt(empMap.get("empId")));
+    }
+
 }

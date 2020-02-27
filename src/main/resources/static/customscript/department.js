@@ -17,7 +17,7 @@ function getData() {
                     {"data": "id"},
                     {
                         "data": function (data, type, row, meta) {
-                            return '<a href="Javascript:void(0)"  onclick="setDataField(' + '\'' + data.id + '\')">' + data.deptName + '</a>';
+                            return '<a href="javascript:void(0)"  onclick="setDataField(' + '\'' + data.id + '\')">' + data.deptName + '</a>';
 
                         }
                     },
