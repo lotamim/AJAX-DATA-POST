@@ -15,7 +15,8 @@ import java.util.Optional;
 public class DepartmentService {
     @Autowired
     DepartmentRepository departmentRepository;
-
+    @Autowired
+    EmailService emailService;
     public String saveDepartment(Map<String, String> mp) {
         String message = null;
         JSONObject jsonObject = new JSONObject();
@@ -24,6 +25,7 @@ public class DepartmentService {
         department.setMaxCapacity(mp.get("maxCapacity"));
         try {
             jsonObject.put("message", departmentRepository.save(department).getDeptName() + " " + " Successfully ");
+            emailService.sendMail(department.getDeptName());
         } catch (JSONException e) {
             e.printStackTrace();
         }

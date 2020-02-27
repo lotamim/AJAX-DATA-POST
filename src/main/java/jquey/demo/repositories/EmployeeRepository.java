@@ -1,8 +1,8 @@
 package jquey.demo.repositories;
 
 import jquey.demo.models.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query(value = "SELECT emp.id,emp.emp_first_name, emp.emp_last_name,\n" +
                     "dept.dept_name FROM employee emp,department as dept\n" +
                     "WHERE dept.id = emp.department_id\n" +
